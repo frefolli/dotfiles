@@ -119,3 +119,5 @@ source ~/.secret # contains GIT_TOKEN
 export GIT_USERNAME="windflaag"
 alias pusher='git push https://$GIT_TOKEN@github.com/$GIT_USERNAME/$(basename "$PWD").git'
 alias sys-update='sudo apt update && sudo apt full-upgrade'
+export NORD_ROOT=/mnt/windows/gits/nord/
+export NORD_EXEC=nord
