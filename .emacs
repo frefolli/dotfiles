@@ -57,3 +57,9 @@
 ;; display a visible dot insteam of blank chars
 (standard-display-ascii ?\t "····")
 (standard-display-ascii ?\s "·")
+
+;; Source: http://www.emacswiki.org/emacs-en/download/misc-cmds.el
+(defun revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer :ignore-auto :noconfirm))
