@@ -112,10 +112,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# personal add-ons
-alias lfetch="clear; neofetch | lolcat"
-alias vifstab="sudo vim /etc/fstab"
-source ~/.secret # contains GIT_TOKEN
-export GIT_USERNAME="windflaag"
-alias pusher='git push https://$GIT_TOKEN@github.com/$GIT_USERNAME/$(basename "$PWD").git'
-alias sys-update='sudo apt update && sudo apt full-upgrade'
+function gitlink_start() {
+    eval `ssh-agent`
+}
+
+function gitlink_stop () {
+    killall ssh-agent
+}
+
+function gitlink_clean () {
+    ssh-add -D
+}
+
+function gitlink_on () {
+    gitlink_clean
+    ssh-add ~/.ssh/$1_github
+}
+
+function gitlink_off () {
+    ssh-add -D ~/.ssh/$1_github
+}
+
+gitlink_start
