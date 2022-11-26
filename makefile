@@ -1,7 +1,8 @@
 @all:
-	
+	@ echo "call make install"
+
+sonarqube:
+	@ ./sonarqube.py
 
 install:
-	@ cp .bashrc ~
-	@ cp .vimrc ~
-	@ cp .emacs ~
+	@ ./install.py
