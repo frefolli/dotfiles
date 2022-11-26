@@ -33,6 +33,12 @@ class SecretsFile:
     def get_secret(self, *keys):
         return self._secrets.get_secret(*keys)
 
+class Coverage:
+    def launch(self):
+        coverage = shutil.which("coverage")
+        os.system(f"{coverage} run -m unittest discover")
+        os.system(f"{coverage} xml")
+
 class Sonarqube:
     def __init__(self, secrets = None):
         if secrets == None:
@@ -68,7 +74,8 @@ class Sonarqube:
 
     def launch(self):
         sonar_scanner = shutil.which("sonar-scanner")
-        os.execv(sonar_scanner, self._arguments)
+        cmd = f"{sonar_scanner} {' '.join(self._arguments)}"
+        os.system(cmd)
 
 if __name__ == "__main__":
     sonarqube = Sonarqube()

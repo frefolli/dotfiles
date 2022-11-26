@@ -17,7 +17,8 @@ Composition of `.secrets` file is very simple
         "access_token": "<ACCESS_TOKEN>",
         "server_url": "<SERVER_URL>",
         "project_key": "<PROJECT_KEY>",
-        "sources": "<SOURCES>"
+        "sources": "<SOURCES>",
+        "coverage": "<COVERAGE_XML>"
     }
 }
 ```

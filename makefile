@@ -6,3 +6,6 @@ sonarqube:
 
 install:
 	@ ./install.py
+
+clean:
+	@ ./clean.sh
