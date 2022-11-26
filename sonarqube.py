@@ -55,6 +55,7 @@ class Sonarqube:
         self._setup_host_url()
         self._setup_project_key()
         self._setup_sources()
+        self._setup_coverage()
 
     def _setup_login(self):
         login = self._get_secret("access_token")
@@ -72,11 +73,30 @@ class Sonarqube:
         sources = self._get_secret("sources")
         self._arguments.append(f"-Dsonar.sources={sources}")
 
+    def _setup_coverage(self):
+        coverage = self._get_secret("coverage")
+        self._arguments.append(f"-Dsonar.python.coverage.reportPaths={coverage}")
+
     def launch(self):
         sonar_scanner = shutil.which("sonar-scanner")
         cmd = f"{sonar_scanner} {' '.join(self._arguments)}"
         os.system(cmd)
 
+class Pipeline:
+    def __init__(self, pipeline = None):
+        if pipeline == None:
+            pipeline = []
+        self._pipeline = pipeline
+
+    def append(self, tool):
+        self._pipeline.append(tool)
+
+    def launch(self):
+        for tool in self._pipeline:
+            tool.launch()
+
 if __name__ == "__main__":
-    sonarqube = Sonarqube()
-    sonarqube.launch()
+    pipeline = Pipeline()
+    pipeline.append(Coverage())
+    pipeline.append(Sonarqube())
+    pipeline.launch()
