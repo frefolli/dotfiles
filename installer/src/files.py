@@ -17,9 +17,7 @@ class Files(Serializable):
                 +"])")
 
     def to_dict(self):
-        return {
-            "files": [file.to_dict() for file in self._files]
-        }
+        return [file.to_dict() for file in self._files]
 
     def install(self):
         for file in self._files:

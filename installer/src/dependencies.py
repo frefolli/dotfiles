@@ -17,9 +17,7 @@ class Dependencies(Serializable):
                 +"])")
 
     def to_dict(self):
-        return {
-            "dependencies": [dependency.to_dict() for dependency in self._dependencies]
-        }
+        return [dependency.to_dict() for dependency in self._dependencies]
 
     def install(self):
         for dependency in self._dependencies:

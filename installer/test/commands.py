@@ -10,9 +10,7 @@ class TestCommands(unittest.TestCase):
 
     def test_to_dict(self):
         instance = Commands()
-        self.assertTrue(instance.to_dict() == {
-            "commands": []
-        })
+        self.assertTrue(instance.to_dict() == [])
 
     def test_to_json(self):
         instance = Commands()

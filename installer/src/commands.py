@@ -17,9 +17,7 @@ class Commands(Serializable):
                 +"])")
 
     def to_dict(self):
-        return {
-            "commands": [command.to_dict() for command in self._commands]
-        }
+        return [command.to_dict() for command in self._commands]
 
     def run(self):
         for command in self._commands:

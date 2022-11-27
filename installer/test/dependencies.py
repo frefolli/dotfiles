@@ -10,9 +10,7 @@ class TestDependencies(unittest.TestCase):
 
     def test_to_dict(self):
         instance = Dependencies()
-        self.assertTrue(instance.to_dict() == {
-            "dependencies": []
-        })
+        self.assertTrue(instance.to_dict() == [])
 
     def test_to_json(self):
         instance = Dependencies()

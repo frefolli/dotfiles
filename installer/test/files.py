@@ -10,9 +10,7 @@ class TestFiles(unittest.TestCase):
 
     def test_to_dict(self):
         instance = Files()
-        self.assertTrue(instance.to_dict() == {
-            "files": []
-        })
+        self.assertTrue(instance.to_dict() == [])
 
     def test_to_json(self):
         instance = Files()
