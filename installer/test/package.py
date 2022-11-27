@@ -23,7 +23,6 @@ class TestPackage(unittest.TestCase):
                 Metadata("name", "author", "date"),
                 Dependencies(), Files(), Commands())
         self.assertTrue(instance.to_dict() == {
-            "type": "package",
             "metadata": instance._metadata.to_dict(),
             "dependencies": instance._dependencies.to_dict(),
             "content": instance._content.to_dict(),

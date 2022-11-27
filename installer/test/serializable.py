@@ -9,9 +9,7 @@ class TestSerializable(unittest.TestCase):
 
     def test_to_dict(self):
         instance = Serializable()
-        self.assertTrue(instance.to_dict() == {
-            "type": "serializable"
-        })
+        self.assertTrue(instance.to_dict() == {})
 
     def test_to_json(self):
         instance = Serializable()

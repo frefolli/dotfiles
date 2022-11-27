@@ -5,9 +5,7 @@ class Command(Serializable):
         return ("Command()")
 
     def to_dict(self):
-        return {
-            "type": "command",
-        }
+        return {}
 
     def run(self):
         # this is a template method

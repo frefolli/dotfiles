@@ -5,9 +5,7 @@ class File(Serializable):
         return ("File()")
 
     def to_dict(self):
-        return {
-            "type": "file",
-        }
+        return {}
 
     def install(self):
         # TODO: stub

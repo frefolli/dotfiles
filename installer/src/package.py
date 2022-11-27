@@ -36,7 +36,6 @@ class Package(Serializable):
 
     def to_dict(self):
         return {
-            "type": "package",
             "metadata": self.get_metadata().to_dict(),
             "dependencies": self.get_dependencies().to_dict(),
             "content": self.get_content().to_dict(),

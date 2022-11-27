@@ -18,7 +18,6 @@ class Dependencies(Serializable):
 
     def to_dict(self):
         return {
-            "type": "dependencies",
             "dependencies": [dependency.to_dict() for dependency in self._dependencies]
         }
 

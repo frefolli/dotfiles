@@ -5,9 +5,7 @@ class Dependency(Serializable):
         return ("Dependency()")
 
     def to_dict(self):
-        return {
-            "type": "dependency",
-        }
+        return {}
 
     def install(self):
         # TODO: stub

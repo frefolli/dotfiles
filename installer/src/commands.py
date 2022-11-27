@@ -18,7 +18,6 @@ class Commands(Serializable):
 
     def to_dict(self):
         return {
-            "type": "commands",
             "commands": [command.to_dict() for command in self._commands]
         }
 

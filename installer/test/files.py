@@ -11,7 +11,6 @@ class TestFiles(unittest.TestCase):
     def test_to_dict(self):
         instance = Files()
         self.assertTrue(instance.to_dict() == {
-            "type": "files",
             "files": []
         })
 

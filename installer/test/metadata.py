@@ -14,7 +14,6 @@ class TestMetadata(unittest.TestCase):
     def test_to_dict(self):
         instance = Metadata("name", "author", "date")
         self.assertTrue(instance.to_dict() == {
-            "type": "metadata",
             "name": "name",
             "author": "author",
             "date": "date"

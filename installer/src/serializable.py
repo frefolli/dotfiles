@@ -5,9 +5,7 @@ class Serializable:
         return "Serializable()"
 
     def to_dict(self):
-        return {
-            "type": "serializable"
-        }
+        return {}
 
     def to_json(self):
         return json.dumps(self.to_dict())

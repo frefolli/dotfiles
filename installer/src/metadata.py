@@ -14,7 +14,6 @@ class Metadata(Serializable):
 
     def to_dict(self):
         return {
-            "type": "metadata",
             "name": self._name,
             "author": self._author,
             "date": self._date

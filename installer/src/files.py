@@ -18,7 +18,6 @@ class Files(Serializable):
 
     def to_dict(self):
         return {
-            "type": "files",
             "files": [file.to_dict() for file in self._files]
         }
 

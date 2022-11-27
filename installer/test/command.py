@@ -9,9 +9,7 @@ class TestCommand(unittest.TestCase):
 
     def test_to_dict(self):
         instance = Command()
-        self.assertTrue(instance.to_dict() == {
-            "type": "command"
-        })
+        self.assertTrue(instance.to_dict() == {})
 
     def test_to_json(self):
         instance = Command()

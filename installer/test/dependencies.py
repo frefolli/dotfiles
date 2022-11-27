@@ -11,7 +11,6 @@ class TestDependencies(unittest.TestCase):
     def test_to_dict(self):
         instance = Dependencies()
         self.assertTrue(instance.to_dict() == {
-            "type": "dependencies",
             "dependencies": []
         })
 

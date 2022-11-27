@@ -11,7 +11,6 @@ class TestCommands(unittest.TestCase):
     def test_to_dict(self):
         instance = Commands()
         self.assertTrue(instance.to_dict() == {
-            "type": "commands",
             "commands": []
         })
 
