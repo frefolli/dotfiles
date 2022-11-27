@@ -1,0 +1,10 @@
+{
+    "packages": [
+        "bash",
+        "bash-config",
+        "emacs",
+        "emacs-config",
+        "vim",
+        "vim-config"
+    ]
+}

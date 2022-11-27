@@ -9,7 +9,7 @@ from ..src.package import Package
 class TestPackage(unittest.TestCase):
     def test_to_str(self):
         instance = Package(
-                Metadata("name", "author", "date"),
+                Metadata("name", "author", "date", "version"),
                 Dependencies(), Files(), Commands())
         self.assertTrue(instance.to_str() == (
             "Package(" + 
@@ -20,7 +20,7 @@ class TestPackage(unittest.TestCase):
 
     def test_to_dict(self):
         instance = Package(
-                Metadata("name", "author", "date"),
+                Metadata("name", "author", "date", "version"),
                 Dependencies(), Files(), Commands())
         self.assertTrue(instance.to_dict() == {
             "metadata": instance._metadata.to_dict(),
@@ -31,12 +31,12 @@ class TestPackage(unittest.TestCase):
 
     def test_to_json(self):
         instance = Package(
-                Metadata("name", "author", "date"), 
+                Metadata("name", "author", "date", "version"), 
                 Dependencies(), Files(), Commands())
         self.assertTrue(instance.to_json() == json.dumps(instance.to_dict()))
     
     def test_install(self):
         instance = Package(
-                Metadata("name", "author", "date"), 
+                Metadata("name", "author", "date", "version"), 
                 Dependencies(), Files(), Commands())
         instance.install()

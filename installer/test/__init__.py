@@ -2,10 +2,17 @@ from .terminal import TestTerminal
 from .linux_terminal import TestLinuxTerminal
 from .serializable import TestSerializable
 from .metadata import TestMetadata
+from .metadata_factory import TestMetadataFactory
 from .file import TestFile
+from .file_factory import TestFileFactory
 from .files import TestFiles
+from .files_factory import TestFilesFactory
 from .command import TestCommand
+from .command_factory import TestCommandFactory
 from .commands import TestCommands
+from .commands_factory import TestCommandsFactory
 from .dependency import TestDependency
+from .dependency_factory import TestDependencyFactory
 from .dependencies import TestDependencies
+from .dependencies_factory import TestDependenciesFactory
 from .package import TestPackage
