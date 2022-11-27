@@ -5,7 +5,7 @@ class Commands(Serializable):
     def __init__(self, commands = None):
         if commands == None:
             commands = []
-        self._commands = []
+        self._commands = commands
 
     def append(self, command : Command):
         self._commands.append(command)
@@ -21,3 +21,7 @@ class Commands(Serializable):
             "type": "commands",
             "commands": [command.to_dict() for command in self._commands]
         }
+
+    def run(self):
+        for command in self._commands:
+            command.run()

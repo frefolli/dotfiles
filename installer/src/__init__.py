@@ -6,4 +6,6 @@ from .file import File
 from .files import Files
 from .command import Command
 from .commands import Commands
+from .dependency import Dependency
+from .dependencies import Dependencies
 from .package import Package

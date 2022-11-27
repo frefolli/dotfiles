@@ -6,4 +6,6 @@ from .file import TestFile
 from .files import TestFiles
 from .command import TestCommand
 from .commands import TestCommands
+from .dependency import TestDependency
+from .dependencies import TestDependencies
 from .package import TestPackage

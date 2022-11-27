@@ -24,3 +24,7 @@ class TestCommands(unittest.TestCase):
         the_command = Command()
         instance.append(the_command)
         self.assertTrue(instance._commands == [the_command])
+
+    def test_run(self):
+        instance = Commands([Command()])
+        instance.run()

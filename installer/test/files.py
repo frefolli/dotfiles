@@ -24,3 +24,7 @@ class TestFiles(unittest.TestCase):
         the_file = File()
         instance.append(the_file)
         self.assertTrue(instance._files == [the_file])
+
+    def test_install(self):
+        instance = Files([File()])
+        instance.install()

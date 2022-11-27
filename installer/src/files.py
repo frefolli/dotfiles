@@ -5,7 +5,7 @@ class Files(Serializable):
     def __init__(self, files = None):
         if files == None:
             files = []
-        self._files = []
+        self._files = files
 
     def append(self, file : File):
         self._files.append(file)
@@ -21,3 +21,7 @@ class Files(Serializable):
             "type": "files",
             "files": [file.to_dict() for file in self._files]
         }
+
+    def install(self):
+        for file in self._files:
+            file.install()
