@@ -59,6 +59,7 @@ class Sonarqube:
         self._setup_project_key()
         self._setup_sources()
         self._setup_coverage()
+        self._setup_python_version()
 
     def _setup_login(self):
         login = self._get_secret("access_token")
@@ -79,6 +80,10 @@ class Sonarqube:
     def _setup_coverage(self):
         coverage = self._get_secret("coverage")
         self._arguments.append(f"-Dsonar.python.coverage.reportPaths={coverage}")
+
+    def _setup_python_version(self):
+        python_version = self._get_secret("python_version")
+        self._arguments.append(f"-Dsonar.python.version={python_version}")
 
     def launch(self):
         sonar_scanner = shutil.which("sonar-scanner")

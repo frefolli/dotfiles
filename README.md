@@ -18,7 +18,9 @@ Composition of `.secrets` file is very simple
         "server_url": "<SERVER_URL>",
         "project_key": "<PROJECT_KEY>",
         "sources": "<SOURCES>",
-        "coverage": "<COVERAGE_XML>"
+        "coverage": "<COVERAGE_XML>",
+        "python_version": "<PYTHON_VERSION>"
+
     }
 }
 ```
