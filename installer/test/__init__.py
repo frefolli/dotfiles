@@ -16,3 +16,6 @@ from .dependency_factory import TestDependencyFactory
 from .dependencies import TestDependencies
 from .dependencies_factory import TestDependenciesFactory
 from .package import TestPackage
+from .package_factory import TestPackageFactory
+from .repository import TestRepository
+from .repository_factory import TestRepositoryFactory

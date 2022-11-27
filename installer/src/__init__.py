@@ -16,3 +16,6 @@ from .dependency_factory import DependencyFactory
 from .dependencies import Dependencies
 from .dependencies_factory import DependenciesFactory
 from .package import Package
+from .package_factory import PackageFactory
+from .repository import Repository
+from .repository_factory import RepositoryFactory
