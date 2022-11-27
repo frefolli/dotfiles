@@ -1,12 +1,12 @@
 import unittest
-import tempfile
 import os
-from ..src.terminal import Terminal
+import tempfile
+from ..src.linux_terminal import LinuxTerminal
 
-class TestTerminal(unittest.TestCase):
+class TestLinuxTerminal(unittest.TestCase):
     def test_touch_file(self):
         the_dir = tempfile.TemporaryDirectory()
-        terminal = Terminal()
+        terminal = LinuxTerminal()
         the_file = os.path.join(the_dir.name, "test_touch_file")
         terminal.touch_file(the_file)
         terminal.delete_file(the_file)
@@ -14,7 +14,7 @@ class TestTerminal(unittest.TestCase):
 
     def test_move_file(self):
         the_dir = tempfile.TemporaryDirectory()
-        terminal = Terminal()
+        terminal = LinuxTerminal()
         the_file = os.path.join(the_dir.name, "test_move_file_1")
         the_destination = os.path.join(the_dir.name, "test_move_file_2")
         terminal.touch_file(the_file)
@@ -24,7 +24,7 @@ class TestTerminal(unittest.TestCase):
     
     def test_copy_file(self):
         the_dir = tempfile.TemporaryDirectory()
-        terminal = Terminal()
+        terminal = LinuxTerminal()
         the_file = os.path.join(the_dir.name, "test_copy_file_1")
         the_destination = os.path.join(the_dir.name, "test_copy_file_2")
         terminal.touch_file(the_file)
@@ -35,7 +35,7 @@ class TestTerminal(unittest.TestCase):
         
     def test_delete_file(self):
         the_dir = tempfile.TemporaryDirectory()
-        terminal = Terminal()
+        terminal = LinuxTerminal()
         the_file = os.path.join(the_dir.name, "test_delete_file")
         terminal.touch_file(the_file)
         terminal.delete_file(the_file)

@@ -2,6 +2,8 @@
 import json
 import os
 import shutil
+import argparse
+import sys
 
 class SecretsDictionary:
     def __init__(self, secrets = None):
@@ -37,6 +39,7 @@ class Coverage:
     def launch(self):
         coverage = shutil.which("coverage")
         os.system(f"{coverage} run -m unittest discover")
+        os.system(f"{coverage} report")
         os.system(f"{coverage} xml")
 
 class Sonarqube:
@@ -95,8 +98,41 @@ class Pipeline:
         for tool in self._pipeline:
             tool.launch()
 
+class CLI:
+    def __init__(self):
+        self._craft_parser()
+        self._parse_args()
+        self._craft_pipeline()
+
+    def _craft_parser(self):
+        self._parser = argparse.ArgumentParser(
+                description = 'Sonarqube wrapper')
+
+        self._parser.add_argument(
+                '-S', '--no-sonarqube',
+                default=False, action='store_true')
+        
+        self._parser.add_argument(
+                '-C', '--no-coverage',
+                default=False, action='store_true')
+        
+        self._parser.add_argument(
+                '-p', '--secrets-path',
+                default=".secrets", type=str, action='store')
+
+    def _parse_args(self):
+        self._config = self._parser.parse_args(sys.argv[1:])
+    
+    def _craft_pipeline(self):
+        self._pipeline = Pipeline()
+        if not self._config.no_coverage:
+            self._pipeline.append(Coverage())
+        if not self._config.no_sonarqube:
+            self._pipeline.append(Sonarqube(SecretsFile(self._config.secrets_path)))
+
+    def run(self):
+        self._pipeline.launch()
+
 if __name__ == "__main__":
-    pipeline = Pipeline()
-    pipeline.append(Coverage())
-    pipeline.append(Sonarqube())
-    pipeline.launch()
+    cli = CLI()
+    cli.run()
