@@ -24,6 +24,18 @@ class DebianLinux:
         if not coverage:
             raise ValueError("sonar-scanner not found")
 
+class UbuntuLinux:
+    def get_coverage(self):
+        coverage = shutil.which("python3-coverage")
+        if not coverage:
+            raise ValueError("python3 coverage not found")
+        return coverage
+    
+    def get_sonar_scanner(self): 
+        sonar_scanner = shutil.which("sonar-scanner")
+        if not coverage:
+            raise ValueError("sonar-scanner not found")
+
 class ArchLinux:
     def get_coverage(self):
         coverage = shutil.which("coverage")
@@ -43,6 +55,8 @@ class DistroFactory:
             issue = issue_file.read()
             if "Debian" in issue:
                 return DebianLinux()
+            if "Ubuntu" in issue:
+                return UbuntuLinux()
             elif "Arch" in issue:
                 return ArchLinux()
             else:
@@ -93,6 +107,7 @@ class Coverage:
         os.system(f"{self._coverage} run -m unittest discover")
         os.system(f"{self._coverage} report")
         os.system(f"{self._coverage} xml")
+        os.system(f"{self._coverage} html")
 
 class Sonarqube:
     def __init__(self, secrets = None):
