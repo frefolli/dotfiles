@@ -41,7 +41,7 @@ jobs:
       - name: Run Coverage on Python
         run: |
           sudo apt-get install python3-coverage
-          ./sonarqube -S
+          ./sonarqube.py -S
       - name: Create Static Dist Directory
         run: | 
           mv htmlcov ./static
