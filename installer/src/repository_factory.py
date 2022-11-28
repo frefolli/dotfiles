@@ -10,6 +10,4 @@ class RepositoryFactory:
 
     @staticmethod
     def from_dict(the_dict):
-        return Repository(
-            [ PackageFactory.from_dict(the_package_dict) for the_package_dict in the_dict ]
-        )
+        return Repository(the_dict)

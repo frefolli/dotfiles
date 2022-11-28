@@ -10,7 +10,7 @@ from ..src.repository import Repository
 class TestRepository(unittest.TestCase):
     def test_to_str(self):
         instance = Repository([])
-        self.assertTrue(instance.to_str() == "Repository(repository = [])")
+        self.assertTrue(instance.to_str() == "Repository(package_names = [])")
 
     def test_to_dict(self):
         instance = Repository()
@@ -22,15 +22,12 @@ class TestRepository(unittest.TestCase):
 
     def test_append(self):
         instance = Repository()
-        the_package = Package(
-                Metadata("name", "author", "date", "version"),
-                Dependencies(), Files(), Commands())
-        instance.append(the_package)
-        self.assertTrue(instance._repository == [the_package])
+        the_package_names = ["name"]
+        the_package_name = "another"
+        instance.append(the_package_name)
+        self.assertTrue(the_package_name in instance.get_package_names())
 
     def test_install(self):
-        instance = Repository([
-            Package(
-                Metadata("name", "author", "date", "version"),
-                Dependencies(), Files(), Commands())])
+        the_package_names = ["name"]
+        instance = Repository(the_package_names)
         instance.install()

@@ -135,7 +135,7 @@ function gitlink_off () {
 
 gitlink_start
 
-export MY_TRACK_LIST="libalgo liblp devlp bicocca-appunti"
+export MY_TRACK_LIST="bicocca-appunti dotfiles"
 
 function pull-all() {
     for folder in $MY_TRACK_LIST; do

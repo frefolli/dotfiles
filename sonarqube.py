@@ -5,6 +5,49 @@ import shutil
 import argparse
 import sys
 
+class Distro:
+    def get_coverage(self):
+        raise Exception("template method")
+
+    def get_sonar_scanner(self): 
+        raise Exception("template method")
+
+class DebianLinux:
+    def get_coverage(self):
+        coverage = shutil.which("python3-coverage")
+        if not coverage:
+            raise ValueError("python3 coverage not found")
+        return coverage
+    
+    def get_sonar_scanner(self): 
+        sonar_scanner = shutil.which("sonar-scanner")
+        if not coverage:
+            raise ValueError("sonar-scanner not found")
+
+class ArchLinux:
+    def get_coverage(self):
+        coverage = shutil.which("coverage")
+        if not coverage:
+            raise ValueError("python3 coverage not found")
+        return coverage
+    
+    def get_sonar_scanner(self): 
+        sonar_scanner = shutil.which("sonar-scanner")
+        if not coverage:
+            raise ValueError("sonar-scanner not found")
+
+class DistroFactory:
+    @staticmethod
+    def get_distro():
+        with open("/etc/issue", "r") as issue_file:
+            issue = issue_file.read()
+            if "Debian" in issue:
+                return DebianLinux()
+            elif "Arch" in issue:
+                return ArchLinux()
+            else:
+                raise ValueError("wrong distro")
+
 class SecretsDictionary:
     def __init__(self, secrets = None):
         if secrets == None:
@@ -36,11 +79,20 @@ class SecretsFile:
         return self._secrets.get_secret(*keys)
 
 class Coverage:
+    def __init__(self):
+        self._setup()
+
+    def _setup(self):
+        self._setup_command()
+
+    def _setup_command(self):
+        distro = DistroFactory.get_distro()
+        self._coverage = distro.get_coverage()
+        
     def launch(self):
-        coverage = shutil.which("coverage")
-        os.system(f"{coverage} run -m unittest discover")
-        os.system(f"{coverage} report")
-        os.system(f"{coverage} xml")
+        os.system(f"{self._coverage} run -m unittest discover")
+        os.system(f"{self._coverage} report")
+        os.system(f"{self._coverage} xml")
 
 class Sonarqube:
     def __init__(self, secrets = None):
@@ -54,12 +106,17 @@ class Sonarqube:
 
     def _setup(self):
         self._arguments = []
+        self._setup_command()
         self._setup_login()
         self._setup_host_url()
         self._setup_project_key()
         self._setup_sources()
         self._setup_coverage()
         self._setup_python_version()
+
+    def _setup_command(self):
+        distro = DistroFactory.get_distro()
+        self._sonar_scanner = distro.get_sonar_scanner()
 
     def _setup_login(self):
         login = self._get_secret("access_token")
@@ -86,8 +143,7 @@ class Sonarqube:
         self._arguments.append(f"-Dsonar.python.version={python_version}")
 
     def launch(self):
-        sonar_scanner = shutil.which("sonar-scanner")
-        cmd = f"{sonar_scanner} {' '.join(self._arguments)}"
+        cmd = f"{self._sonar_scanner} {' '.join(self._arguments)}"
         os.system(cmd)
 
 class Pipeline:
