@@ -7,6 +7,13 @@ import json
 
 class PackageFactory:
     @staticmethod
+    def from_location(location):
+        with open(f"{location}/index.json", "r") as the_json_file:
+            the_json_text = the_json_file.read()
+            instance = PackageFactory.from_json(the_json_text)
+            return instance
+
+    @staticmethod
     def from_json(the_json_text):
         the_dict = json.loads(the_json_text)
         return PackageFactory.from_dict(the_dict)

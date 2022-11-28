@@ -3,6 +3,11 @@ import json
 import unittest
 
 class TestRepositoryFactory(unittest.TestCase):
+    def test_from_location(self):
+        the_location = "./repository"
+        instance = RepositoryFactory.from_location(the_location)
+        self.assertTrue(the_location == instance.get_location())
+
     def test_from_dict(self):
         the_dict = []
         instance = RepositoryFactory.from_dict(the_dict)

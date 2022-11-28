@@ -7,6 +7,12 @@ import json
 import unittest
 
 class TestPackageFactory(unittest.TestCase):
+    def test_from_location(self):
+        the_name = "bash"
+        the_location = f"./repository/{the_name}"
+        instance = PackageFactory.from_location(the_location)
+        self.assertTrue(the_name == instance.get_metadata().get_name())
+
     def test_from_json(self):
         metadata = Metadata("name", "author", "date", "version")
         dependencies = Dependencies([])
