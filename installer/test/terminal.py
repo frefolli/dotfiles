@@ -4,14 +4,6 @@ import os
 from ..src.terminal import Terminal
 
 class TestTerminal(unittest.TestCase):
-    def test_touch_file(self):
-        the_dir = tempfile.TemporaryDirectory()
-        terminal = Terminal()
-        the_file = os.path.join(the_dir.name, "test_touch_file")
-        terminal.touch_file(the_file)
-        terminal.delete_file(the_file)
-        the_dir.cleanup()
-
     def test_move_file(self):
         the_dir = tempfile.TemporaryDirectory()
         terminal = Terminal()
@@ -33,10 +25,18 @@ class TestTerminal(unittest.TestCase):
         terminal.delete_file(the_destination)
         the_dir.cleanup()
         
-    def test_delete_file(self):
+    def test_touch_delete_file(self):
         the_dir = tempfile.TemporaryDirectory()
         terminal = Terminal()
-        the_file = os.path.join(the_dir.name, "test_delete_file")
+        the_file = os.path.join(the_dir.name, "test_touch_delete_file")
         terminal.touch_file(the_file)
         terminal.delete_file(the_file)
+        the_dir.cleanup()
+        
+    def test_create_delete_directory(self):
+        the_dir = tempfile.TemporaryDirectory()
+        terminal = Terminal()
+        the_file = os.path.join(the_dir.name, "test_create_delete_directory")
+        terminal.create_directory(the_file)
+        terminal.delete_directory(the_file)
         the_dir.cleanup()

@@ -2,6 +2,7 @@ import unittest
 import json
 from ..src.file import File
 from ..src.files import Files
+import tempfile
 
 class TestFiles(unittest.TestCase):
     def test_to_str(self):
@@ -18,10 +19,14 @@ class TestFiles(unittest.TestCase):
 
     def test_append(self):
         instance = Files()
-        the_file = File()
+        the_file = File("file", "destination")
         instance.append(the_file)
         self.assertTrue(instance._files == [the_file])
 
     def test_install(self):
-        instance = Files([File()])
+        the_file = tempfile.TemporaryFile()
+        the_destination = tempfile.TemporaryFile()
+        instance = Files([File(the_file, the_destination)])
         instance.install()
+        the_file.close()
+        the_destination.close()

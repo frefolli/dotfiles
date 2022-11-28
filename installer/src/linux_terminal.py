@@ -15,3 +15,9 @@ class LinuxTerminal(Terminal):
 
     def delete_file(self, the_file : str):
         os.system(f"rm {the_file}")
+
+    def create_directory(self, the_directory : str):
+        os.system(f"mkdir -p {the_directory}")
+    
+    def delete_directory(self, the_directory : str):
+        os.system(f"rm -rf {the_directory}")

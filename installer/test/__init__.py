@@ -1,5 +1,6 @@
 from .terminal import TestTerminal
 from .linux_terminal import TestLinuxTerminal
+from .terminal_factory import TestTerminalFactory
 from .serializable import TestSerializable
 from .metadata import TestMetadata
 from .metadata_factory import TestMetadataFactory

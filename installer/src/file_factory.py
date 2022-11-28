@@ -9,4 +9,4 @@ class FileFactory:
 
     @staticmethod
     def from_dict(the_dict):
-        return File()
+        return File(the_dict[0], the_dict[1])

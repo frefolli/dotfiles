@@ -16,3 +16,11 @@ class Terminal:
     def delete_file(self, the_file : str):
         # template method
         pass
+
+    def create_directory(self, the_directory : str):
+        # template method
+        pass
+    
+    def delete_directory(self, the_directory : str):
+        # template method
+        pass

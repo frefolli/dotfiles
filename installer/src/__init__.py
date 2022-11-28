@@ -1,5 +1,6 @@
 from .terminal import Terminal
 from .linux_terminal import LinuxTerminal
+from .terminal_factory import TerminalFactory
 from .serializable import Serializable
 from .metadata import Metadata
 from .metadata_factory import MetadataFactory

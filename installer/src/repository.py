@@ -13,6 +13,7 @@ class Repository(Serializable):
         self._location = location
         self._package_names = package_names
         self._packages = {}
+        self._installed_packages = []
 
     def append(self, package_name : str):
         self._package_names.append(package_name)
@@ -23,19 +24,25 @@ class Repository(Serializable):
     def get_package_names(self):
         return self._package_names
     
-    def _read_package(self, name):
+    def _read_package(self, name : str):
         the_location = os.path.join(self.get_location(), name)
         self._packages[name] = PackageFactory.from_location(the_location)
     
-    def get_package(self, name):
+    def get_package(self, name : str):
         if name not in self._package_names:
             raise Exeption(f"package {name} not in repository")
-        if not name in self._packages:
+        if name not in self._packages:
             self._read_package(name)
         return self._packages[name]
     
     def get_location(self):
         return self._location
+
+    def is_installed(self, package_name : str):
+        return package_name in self._installed_packages
+
+    def get_installed_packages(self):
+        return self._installed_packages
 
     def to_str(self):
         return ("Repository(" + 
@@ -45,7 +52,14 @@ class Repository(Serializable):
     def to_dict(self):
         return self._package_names
 
-    def install(self):
-        for package_name in self._package_names:
-            # TODO: stub
-            pass
+    def install_packages(self, package_names = None):
+        if package_names == None:
+            package_names = []
+        for package_name in package_names:
+            self.install_package(package_name)
+
+    def install_package(self, package_name : str):
+        if not self.is_installed(package_name):
+            the_package = self.get_package(package_name)
+            the_package.install()
+            self._installed_packages.append(package_name)

@@ -21,8 +21,9 @@ class DebianLinux:
     
     def get_sonar_scanner(self): 
         sonar_scanner = shutil.which("sonar-scanner")
-        if not coverage:
+        if not sonar_scanner:
             raise ValueError("sonar-scanner not found")
+        return sonar_scanner
 
 class UbuntuLinux:
     def get_coverage(self):
@@ -33,8 +34,9 @@ class UbuntuLinux:
     
     def get_sonar_scanner(self): 
         sonar_scanner = shutil.which("sonar-scanner")
-        if not coverage:
+        if not sonar_scanner:
             raise ValueError("sonar-scanner not found")
+        return sonar_scanner
 
 class ArchLinux:
     def get_coverage(self):
@@ -45,8 +47,9 @@ class ArchLinux:
     
     def get_sonar_scanner(self): 
         sonar_scanner = shutil.which("sonar-scanner")
-        if not coverage:
+        if not sonar_scanner:
             raise ValueError("sonar-scanner not found")
+        return sonar_scanner
 
 class DistroFactory:
     @staticmethod
