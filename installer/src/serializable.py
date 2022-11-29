@@ -1,3 +1,6 @@
+"""
+class Serializable
+"""
 import json
 
 class Serializable:

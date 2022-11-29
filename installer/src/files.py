@@ -1,3 +1,6 @@
+"""
+class Files
+"""
 from .serializable import Serializable
 from .file import File
 
@@ -19,6 +22,6 @@ class Files(Serializable):
     def to_dict(self):
         return [file.to_dict() for file in self._files]
 
-    def install(self):
+    def install(self, location):
         for file in self._files:
-            file.install()
+            file.install(location)

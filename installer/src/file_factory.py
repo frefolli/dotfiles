@@ -1,3 +1,6 @@
+"""
+class FileFactory
+"""
 from .file import File
 import json
 

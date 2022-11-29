@@ -1,4 +1,6 @@
-#!/bin/bash
+"""
+class LinuxTerminal
+"""
 import os
 
 from .terminal import Terminal

@@ -1,3 +1,6 @@
+"""
+class File
+"""
 from .serializable import Serializable
 from .terminal_factory import TerminalFactory
 
@@ -20,6 +23,7 @@ class File(Serializable):
     def to_dict(self):
         return [ self._file, self._destination ]
 
-    def install(self):
+    def install(self, location):
         terminal = TerminalFactory.get_terminal()
-        terminal.copy_file(self._file, self._destination)
+        print(f"[ INSTALL ] {location}/{self._file} to {self._destination}")
+        terminal.copy_file(location + "/" + self._file, self._destination)

@@ -1,3 +1,6 @@
+"""
+class FilesFactory
+"""
 from .file_factory import FileFactory
 from .files import Files
 import json

@@ -1,5 +1,9 @@
+"""
+module src
+"""
 # exceptions
 from .template_method_exception import TemplateMethodException
+from .package_not_found_exception import PackageNotFoundException
 
 # classes
 from .terminal import Terminal
@@ -24,3 +28,4 @@ from .package import Package
 from .package_factory import PackageFactory
 from .repository import Repository
 from .repository_factory import RepositoryFactory
+from .context import Context

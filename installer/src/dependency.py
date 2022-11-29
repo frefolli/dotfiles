@@ -1,3 +1,6 @@
+"""
+class Dependency
+"""
 from .serializable import Serializable
 
 class Dependency(Serializable):
@@ -15,5 +18,6 @@ class Dependency(Serializable):
         return self._package_name
 
     def install(self):
-        # TODO: stub
-        pass
+        from .context import Context
+        repository = Context.get_repository()
+        repository.install_package(self.get_package_name())

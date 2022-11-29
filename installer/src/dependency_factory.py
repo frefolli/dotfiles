@@ -1,3 +1,6 @@
+"""
+class DependencyFactory
+"""
 from .dependency import Dependency
 import json
 

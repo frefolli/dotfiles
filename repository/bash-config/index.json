@@ -6,6 +6,6 @@
         "version": "1.0.0"
     },
     "dependencies": [ "bash" ],
-    "content": [],
+    "content": [ [".bashrc", "~/.bashrc"] ],
     "post_install": []
 }

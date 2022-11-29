@@ -1,3 +1,6 @@
+"""
+class Package
+"""
 from .serializable import Serializable
 from .metadata import Metadata
 from .files import Files
@@ -42,7 +45,9 @@ class Package(Serializable):
             "post_install": self.get_post_install().to_dict()
         }
 
-    def install(self):
+    def install(self, location : str):
+        print(f"[ WORKING ] {self._metadata.get_name()}")
         self._dependencies.install()
-        self._content.install()
+        self._content.install(location)
         self._post_install.run()
+        print(f"[  DONE   ] {self._metadata.get_name()}")

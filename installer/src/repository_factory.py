@@ -1,3 +1,6 @@
+"""
+class RepositoryFactory
+"""
 from .package_factory import PackageFactory
 from .repository import Repository
 import json

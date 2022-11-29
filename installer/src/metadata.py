@@ -1,3 +1,6 @@
+"""
+class Metadata
+"""
 from .serializable import Serializable
 
 class Metadata(Serializable):

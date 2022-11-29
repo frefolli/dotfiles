@@ -1,4 +1,6 @@
-#!/bin/bash
+"""
+class Terminal
+"""
 from .template_method_exception import TemplateMethodException
 
 class Terminal:

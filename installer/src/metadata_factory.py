@@ -1,3 +1,6 @@
+"""
+class MetadataFactory
+"""
 from .metadata import Metadata
 import json
 

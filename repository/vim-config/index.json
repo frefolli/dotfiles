@@ -6,6 +6,6 @@
         "version": "1.0.0"
     },
     "dependencies": [ "vim" ],
-    "content": [],
+    "content": [ [".vimrc", "~/.vimrc"] ],
     "post_install": []
 }

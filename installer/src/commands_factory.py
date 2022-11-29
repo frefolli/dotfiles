@@ -1,3 +1,6 @@
+"""
+class CommandsFactory
+"""
 from .command_factory import CommandFactory
 from .commands import Commands
 import json

@@ -1,3 +1,6 @@
+"""
+class Commands
+"""
 from .serializable import Serializable
 from .command import Command
 

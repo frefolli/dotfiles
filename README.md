@@ -24,3 +24,10 @@ Composition of `.secrets` file is very simple
     }
 }
 ```
+
+## Architectural & Design Patterns
+
+| file | component | pattern | description |
+| --- | --- | --- | --- |
+| src/context.py | Context | Lazy Load | singleton for `Context._repository` |
+

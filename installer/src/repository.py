@@ -1,6 +1,7 @@
 from .serializable import Serializable
 from .package import Package
 from .package_factory import PackageFactory
+from .package_not_found_exception import PackageNotFoundException
 import os
 
 class Repository(Serializable):
@@ -30,7 +31,7 @@ class Repository(Serializable):
     
     def get_package(self, name : str):
         if name not in self._package_names:
-            raise Exception(f"package {name} not in repository")
+            raise PackageNotFoundException(name)
         if name not in self._packages:
             self._read_package(name)
         return self._packages[name]
@@ -61,5 +62,5 @@ class Repository(Serializable):
     def install_package(self, package_name : str):
         if not self.is_installed(package_name):
             the_package = self.get_package(package_name)
-            the_package.install()
+            the_package.install(self._location + "/" + package_name)
             self._installed_packages.append(package_name)

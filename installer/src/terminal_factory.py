@@ -1,3 +1,6 @@
+"""
+class TerminalFactory
+"""
 from .linux_terminal import LinuxTerminal
 import os
 

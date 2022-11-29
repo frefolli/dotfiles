@@ -1,3 +1,6 @@
+"""
+class Command
+"""
 from .serializable import Serializable
 
 class Command(Serializable):

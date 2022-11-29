@@ -5,7 +5,7 @@ sonarqube:
 	@ ./sonarqube.py
 
 install:
-	@ ./install.py
+	@ ./dpcm -h
 
 clean:
 	@ ./clean.sh

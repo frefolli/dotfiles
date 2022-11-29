@@ -1,3 +1,6 @@
+"""
+class PackageFactory
+"""
 from .metadata_factory import MetadataFactory
 from .files_factory import FilesFactory
 from .commands_factory import CommandsFactory
