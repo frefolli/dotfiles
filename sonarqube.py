@@ -107,7 +107,7 @@ class Coverage:
         self._coverage = distro.get_coverage()
         
     def launch(self):
-        os.system(f"{self._coverage} run -m unittest discover")
+        os.system(f"{self._coverage} run --source=installer -m unittest discover")
         os.system(f"{self._coverage} report")
         os.system(f"{self._coverage} xml")
         os.system(f"{self._coverage} html")

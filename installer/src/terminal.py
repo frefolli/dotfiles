@@ -1,20 +1,21 @@
 #!/bin/bash
+from .template_method_exception import TemplateMethodException
 
 class Terminal:
     def touch_file(self, the_file : str):
-        raise Exception("template method")
+        raise TemplateMethodException()
 
     def copy_file(self, the_file : str, the_destination : str):
-        raise Exception("template method")
+        raise TemplateMethodException()
 
     def move_file(self, the_file : str, the_destination : str):
-        raise Exception("template method")
+        raise TemplateMethodException()
 
     def delete_file(self, the_file : str):
-        raise Exception("template method")
+        raise TemplateMethodException()
 
     def create_directory(self, the_directory : str):
-        raise Exception("template method")
+        raise TemplateMethodException()
     
     def delete_directory(self, the_directory : str):
-        raise Exception("template method")
+        raise TemplateMethodException()

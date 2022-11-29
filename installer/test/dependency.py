@@ -3,6 +3,11 @@ import json
 from ..src.dependency import Dependency
 
 class TestDependency(unittest.TestCase):
+    def test_get_package_name(self):
+        the_dependency_name = "dependency"
+        instance = Dependency(the_dependency_name)
+        self.assertTrue(instance.get_package_name() == the_dependency_name)
+
     def test_to_str(self):
         the_dependency_name = "dependency"
         instance = Dependency(the_dependency_name)

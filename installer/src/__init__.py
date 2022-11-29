@@ -1,3 +1,7 @@
+# exceptions
+from .template_method_exception import TemplateMethodException
+
+# classes
 from .terminal import Terminal
 from .linux_terminal import LinuxTerminal
 from .terminal_factory import TerminalFactory

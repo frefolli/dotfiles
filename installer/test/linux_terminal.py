@@ -46,7 +46,7 @@ class TestLinuxTerminal(unittest.TestCase):
         linux_terminal = LinuxTerminal()
         try:
             linux_terminal.touch_file(f"{the_dir.name}/null/file")
-            self.assertTrue(False)
+            self.fail("should'nt be able to touch file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -56,7 +56,7 @@ class TestLinuxTerminal(unittest.TestCase):
         linux_terminal = LinuxTerminal()
         try:
             linux_terminal.delete_file(f"{the_dir.name}/null/file")
-            self.assertTrue(False)
+            self.fail("should'nt be able to delete file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -65,8 +65,8 @@ class TestLinuxTerminal(unittest.TestCase):
         the_dir = tempfile.TemporaryDirectory()
         linux_terminal = LinuxTerminal()
         try:
-            linux_terminal.copy_file(f"{the_dir.name}/null/file {the_dir.name}/null2/file")
-            self.assertTrue(False)
+            linux_terminal.copy_file(f"{the_dir.name}/null/file", "{the_dir.name}/null2/file")
+            self.fail("should'nt be able to copy file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -75,8 +75,8 @@ class TestLinuxTerminal(unittest.TestCase):
         the_dir = tempfile.TemporaryDirectory()
         linux_terminal = LinuxTerminal()
         try:
-            linux_terminal.move_file(f"{the_dir.name}/null/file {the_dir.name}/null2/file")
-            self.assertTrue(False)
+            linux_terminal.move_file(f"{the_dir.name}/null/file", "{the_dir.name}/null2/file")
+            self.fail("should'nt be able to move file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -87,7 +87,7 @@ class TestLinuxTerminal(unittest.TestCase):
         linux_terminal = LinuxTerminal()
         try:
             linux_terminal.create_directory(f"{the_dir.name}/null/directory")
-            self.assertTrue(False)
+            self.fail("should'nt be able to create directory")
         except Exception:
             pass
         the_dir.cleanup()
@@ -97,7 +97,7 @@ class TestLinuxTerminal(unittest.TestCase):
         linux_terminal = LinuxTerminal()
         try:
             linux_terminal.delete_directory(f"{the_dir.name}/null/directory")
-            self.assertTrue(False)
+            self.fail("should'nt be able to delete directory")
         except Exception:
             pass
         the_dir.cleanup()

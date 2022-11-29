@@ -30,7 +30,7 @@ class Repository(Serializable):
     
     def get_package(self, name : str):
         if name not in self._package_names:
-            raise Exeption(f"package {name} not in repository")
+            raise Exception(f"package {name} not in repository")
         if name not in self._packages:
             self._read_package(name)
         return self._packages[name]

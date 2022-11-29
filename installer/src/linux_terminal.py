@@ -25,11 +25,11 @@ class LinuxTerminal(Terminal):
             raise ValueError(f"cannot delete file {the_file}")
 
     def create_directory(self, the_directory : str):
-        exit_code = os.system(f"mkdir -p {the_directory}")
+        exit_code = os.system(f"mkdir {the_directory}")
         if exit_code != 0:
             raise ValueError(f"cannot create directory {the_directory}")
         
     def delete_directory(self, the_directory : str):
-        exit_code = os.system(f"rm -rf {the_directory}")
+        exit_code = os.system(f"rm -r {the_directory}")
         if exit_code != 0:
             raise ValueError(f"cannot delete directory {the_directory}")

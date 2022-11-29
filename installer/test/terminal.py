@@ -10,7 +10,7 @@ class TestTerminal(unittest.TestCase):
         the_file = os.path.join(the_dir.name, "touch_file")
         try:
             terminal.touch_file(the_file)
-            self.assertTrue(False)
+            self.fail("should'nt be able to touch file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -21,7 +21,7 @@ class TestTerminal(unittest.TestCase):
         the_file = os.path.join(the_dir.name, "delete_file")
         try:
             terminal.delete_file(the_file)
-            self.assertTrue(False)
+            self.fail("should'nt be able to delete file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -33,7 +33,7 @@ class TestTerminal(unittest.TestCase):
         the_destination = os.path.join(the_dir.name, "copy_destination")
         try:
             terminal.copy_file(the_file, the_destination)
-            self.assertTrue(False)
+            self.fail("should'nt be able to copy file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -45,7 +45,7 @@ class TestTerminal(unittest.TestCase):
         the_destination = os.path.join(the_dir.name, "move_destination")
         try:
             terminal.move_file(the_file, the_destination)
-            self.assertTrue(False)
+            self.fail("should'nt be able to move file")
         except Exception:
             pass
         the_dir.cleanup()
@@ -56,7 +56,7 @@ class TestTerminal(unittest.TestCase):
         the_directory = os.path.join(the_dir.name, "create_directory")
         try:
             terminal.create_directory(the_directory)
-            self.assertTrue(False)
+            self.fail("should'nt be able to create directory")
         except Exception:
             pass
         the_dir.cleanup()
@@ -67,7 +67,7 @@ class TestTerminal(unittest.TestCase):
         the_directory = os.path.join(the_dir.name, "delete_directory")
         try:
             terminal.delete_directory(the_directory)
-            self.assertTrue(False)
+            self.fail("should'nt be able to delete directory") 
         except Exception:
             pass
         the_dir.cleanup()
