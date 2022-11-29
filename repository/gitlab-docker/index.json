@@ -1,0 +1,17 @@
+{
+    "metadata": {
+        "name": "gitlab-docker",
+        "author": "frefolli",
+        "date": "27/11/22",
+        "version": "1.0.0"
+    },
+    "dependencies": [ "docker" ],
+    "content": [
+        ["./launcher.sh", "~/.config/gitlab/launcher.sh"]
+    ],
+    "post_install": [
+        "docker volume create --name gitlab_data",
+        "docker volume create --name gitlab_config",
+        "docker volume create --name gitlab_logs"
+    ]
+}

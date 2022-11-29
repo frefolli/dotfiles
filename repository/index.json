@@ -4,5 +4,8 @@
     "emacs",
     "emacs-config",
     "vim",
-    "vim-config"
+    "vim-config",
+    "docker",
+    "sonarqube-docker",
+    "gitlab-docker"
 ]
