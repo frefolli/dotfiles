@@ -1,7 +1,9 @@
 import unittest
 import json
 from ..src.file import File
+from ..src.terminal_factory import TerminalFactory
 import tempfile
+import os
 
 class TestFile(unittest.TestCase):
     def test_to_str(self):
@@ -25,9 +27,12 @@ class TestFile(unittest.TestCase):
         self.assertTrue(instance.to_json() == json.dumps(instance.to_dict()))
 
     def test_install(self):
-        the_file = tempfile.TemporaryFile()
-        the_destination = tempfile.TemporaryFile()
-        instance = File(the_file.name, the_destination.name)
+        the_directory = tempfile.TemporaryDirectory()
+        the_file = os.path.join(the_directory.name, "file")
+        the_destination = os.path.join(the_directory.name, "destination")
+        terminal = TerminalFactory.get_terminal()
+        terminal.touch_file(the_file)
+        instance = File(the_file, the_destination)
         instance.install()
-        the_file.close()
-        the_destination.close()
+        terminal.delete_file(the_destination)
+        the_directory.cleanup()
