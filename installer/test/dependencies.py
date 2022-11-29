@@ -18,10 +18,10 @@ class TestDependencies(unittest.TestCase):
 
     def test_append(self):
         instance = Dependencies()
-        the_dependency = Dependency()
+        the_dependency = Dependency("dependency") 
         instance.append(the_dependency)
         self.assertTrue(instance._dependencies == [the_dependency])
 
     def test_install(self):
-        instance = Dependencies([Dependency()])
+        instance = Dependencies([Dependency("dependency")])
         instance.install()

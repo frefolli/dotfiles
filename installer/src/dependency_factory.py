@@ -9,4 +9,4 @@ class DependencyFactory:
 
     @staticmethod
     def from_dict(the_dict):
-        return Dependency()
+        return Dependency(package_name = the_dict)

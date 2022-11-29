@@ -1,4 +1,5 @@
 from .serializable import Serializable
+from .terminal_factory import TerminalFactory
 
 class File(Serializable):
     def __init__(self, file : str, destination : str):
@@ -20,5 +21,5 @@ class File(Serializable):
         return [ self._file, self._destination ]
 
     def install(self):
-        # TODO: stub
-        pass
+        terminal = TerminalFactory.get_terminal()
+        terminal.copy_file(self._file, self._destination)

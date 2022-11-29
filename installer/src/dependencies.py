@@ -11,10 +11,8 @@ class Dependencies(Serializable):
         self._dependencies.append(dependency)
 
     def to_str(self):
-        return ("Dependencies(dependencies = [" +
-                ", ".join(
-                    [dependency.to_str() for dependency in self._dependencies])
-                +"])")
+        return ("Dependencies(dependencies = " +
+                    str([dependency.get_name() for dependency in self._dependencies])+ ")")
 
     def to_dict(self):
         return [dependency.to_dict() for dependency in self._dependencies]
