@@ -61,7 +61,7 @@ class TestTerminal(unittest.TestCase):
             pass
         the_dir.cleanup()
 
-    def test_delete_file(self):
+    def test_delete_directory(self):
         the_dir = tempfile.TemporaryDirectory()
         terminal = Terminal()
         the_directory = os.path.join(the_dir.name, "delete_directory")
