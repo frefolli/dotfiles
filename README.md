@@ -1,8 +1,4 @@
 # dotfiles
 
-My config files repository
-
- - .emacs
- - .vimrc
- - .bashrc
+`dotj` repository of dotfiles
 
