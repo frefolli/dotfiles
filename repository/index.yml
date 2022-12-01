@@ -8,3 +8,5 @@ packages: |
   docker
   sonarqube-docker
   gitlab-docker
+  xmonad
+  xmonad-config
