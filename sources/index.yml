@@ -1,1 +1,7 @@
 packages:
+  - bash
+  - bash-config
+  - vim
+  - vim-config
+  - emacs
+  - emacs-config
