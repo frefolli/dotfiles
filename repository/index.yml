@@ -1,10 +1,7 @@
 packages:
- - bash
- - bash-config
- - emacs
- - emacs-config
- - vim
- - vim-config
- - docker
- - sonarqube-docker
- - gitlab-docker
+- bash
+- bash-config
+- emacs
+- emacs-config
+- vim
+- vim-config
